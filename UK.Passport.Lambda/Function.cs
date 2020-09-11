@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -15,14 +16,31 @@ namespace UK.Passport.Lambda
 {
     public class Function
     {
-        private static async Task<List<ValidationResult>> GetPassportValidation(DTO.Passport passport)
+        private static List<ValidationResult> GetPassportValidation(DTO.Passport passport)
         {
-            return await Validator.ValidateAsync(passport);
+            return Validator.Validate(passport);
         }
 
-        public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest apigProxyEvent, ILambdaContext context)
+        public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest apigProxyEvent, ILambdaContext context)
         {
-            var validationResults = await GetPassportValidation(JsonConvert.DeserializeObject<DTO.Passport>(apigProxyEvent.Body));
+            //if(string.IsNullOrEmpty(apigProxyEvent.Body))
+            //    throw new ArgumentNullException("body", "body of message is null or empty, nothing to parse");
+
+            //var passportObject = JsonConvert.DeserializeObject<DTO.Passport>(apigProxyEvent.Body);
+
+            // Placeholder passport details. Leaving this here for now until I figure out how to POST JSON body
+            var passportObject = new DTO.Passport
+            {
+                MrzLine2 = "L898902C<3UTO6908061F9406236ZE184226B<<<<<14",
+                PassportNumber = "L898902C",
+                DateOfBirth = new DateTime(1969, 8, 6),
+                Nationality = "UTO",
+                ExpirationDate = new DateTime(1994, 6, 23),
+                Gender = "F",
+                PersonalNumber = "ZE184226B"
+            };
+            
+            var validationResults = GetPassportValidation(passportObject);
 
             return new APIGatewayProxyResponse
             {
