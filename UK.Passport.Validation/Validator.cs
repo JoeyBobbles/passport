@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UK.Passport.Validation.DTOs;
 
 namespace UK.Passport.Validation
@@ -53,6 +54,13 @@ namespace UK.Passport.Validation
             results.Add(finalCheckDigitValidator.ValidateCheckDigit("Final Check Digit", decodedPassportLine.FinalCheckDigit));
 
             return results;
+        }
+
+        public static async Task<List<ValidationResult>> ValidateAsync(PassportLine passportLine, string mrzLine2)
+        {
+            var validationResult = await new Task<List<ValidationResult>>(() => Validate(passportLine, mrzLine2));
+
+            return validationResult;
         }
     }
 }
