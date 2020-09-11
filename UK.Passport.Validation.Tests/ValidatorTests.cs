@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using UK.Passport.Validation.DTOs;
+using System.ComponentModel.DataAnnotations;
 using NUnit.Framework;
 
 namespace UK.Passport.Validation.Tests
@@ -12,9 +13,12 @@ namespace UK.Passport.Validation.Tests
         {
             var validator = new Validator(inputValue);
 
-            var result = validator.ValidateCheckDigit(checkDigit);
+            var result = validator.ValidateCheckDigit(nameof(Validator_CheckDigit_Validate), checkDigit);
 
-            Assert.AreEqual(true, result);
+            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CheckDigit_Validate), true);
+            
+            Assert.AreEqual(expectedValidationResult.Id, result.Id);
+            Assert.AreEqual(expectedValidationResult.Result, result.Result);
         }
 
         [Test]
@@ -24,9 +28,12 @@ namespace UK.Passport.Validation.Tests
         {
             var validator = new Validator(inputValue);
 
-            var result = validator.CrossCheck(crossCheckValue);
+            var result = validator.CrossCheck(nameof(Validator_CrossCheck_AssertDifferent), crossCheckValue);
 
-            Assert.AreNotEqual(true, result);
+            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CrossCheck_AssertDifferent), true);
+            
+            Assert.AreEqual(expectedValidationResult.Id, result.Id);
+            Assert.AreNotEqual(expectedValidationResult.Result, result.Result);
         }
 
         [Test]
@@ -36,9 +43,12 @@ namespace UK.Passport.Validation.Tests
         {
             var validator = new Validator(inputValue);
 
-            var result = validator.CrossCheck(crossCheckValue);
+            var result = validator.CrossCheck(nameof(Validator_CrossCheck_AssertEqual), crossCheckValue);
+            
+            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CrossCheck_AssertEqual), true);
 
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(expectedValidationResult.Id, result.Id);
+            Assert.AreEqual(expectedValidationResult.Result, result.Result);
         }
     }
 }
