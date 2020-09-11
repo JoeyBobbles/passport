@@ -2,6 +2,7 @@
 
 namespace UK.Passport.DTO
 {
+    [Serializable]
     public class Passport
     {
         // User can set these props through the UI

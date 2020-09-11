@@ -8,6 +8,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.Lambda", "UK.Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.DTO", "UK.Passport.DTO\UK.Passport.DTO.csproj", "{5246BADB-5FD2-46B2-B116-AC5CF6778E88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB02E14F-3988-43E1-A0EB-2D7355DF4BF2}"
+ProjectSection(SolutionItems) = preProject
+	template.yaml = template.yaml
+	README.md = README.md
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

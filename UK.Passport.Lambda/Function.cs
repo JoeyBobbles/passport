@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Net.Http;
 using Newtonsoft.Json;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
+
 using UK.Passport.Validation;
 using UK.Passport.DTO;
 
