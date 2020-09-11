@@ -1,4 +1,4 @@
-﻿namespace UK.Passport.Validation.DTOs
+﻿namespace UK.Passport.DTO
 {
     public class ValidationResult
     {

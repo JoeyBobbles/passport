@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\UK.Passport.DTO\UK.Passport.DTO.csproj" />
       <ProjectReference Include="..\UK.Passport.Validation\UK.Passport.Validation.csproj" />
     </ItemGroup>
 

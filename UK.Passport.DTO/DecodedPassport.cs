@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
 
-namespace UK.Passport.Validation.DTOs
+namespace UK.Passport.DTO
 {
-    public class DecodedPassportLine : PassportLine
+    public class DecodedPassport : Passport
     {
-        public DecodedPassportLine(string mrzLine2)
+        public DecodedPassport(string mrzLine2)
         {
             MzrLine2 = mrzLine2;
 

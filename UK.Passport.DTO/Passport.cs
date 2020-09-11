@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace UK.Passport.Validation.DTOs
+namespace UK.Passport.DTO
 {
-    public class PassportLine
+    public class Passport
     {
         // User can set these props through the UI
         public string PassportNumber { get; set; }
@@ -11,5 +11,6 @@ namespace UK.Passport.Validation.DTOs
         public string Gender { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string PersonalNumber { get; set; }
+        public string MrzLine2 { get; set; }
     }
 }

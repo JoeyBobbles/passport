@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.Validation.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.Lambda", "UK.Passport.Lambda\UK.Passport.Lambda.csproj", "{BA9632ED-9F35-4D4F-9BAF-83C14F9BE099}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.DTO", "UK.Passport.DTO\UK.Passport.DTO.csproj", "{5246BADB-5FD2-46B2-B116-AC5CF6778E88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{BA9632ED-9F35-4D4F-9BAF-83C14F9BE099}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9632ED-9F35-4D4F-9BAF-83C14F9BE099}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9632ED-9F35-4D4F-9BAF-83C14F9BE099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

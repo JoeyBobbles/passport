@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
 using UK.Passport.Validation;
-using UK.Passport.Validation.DTOs;
+using UK.Passport.DTO;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -16,14 +16,14 @@ namespace UK.Passport.Lambda
 {
     public class Function
     {
-        private static async Task<List<ValidationResult>> GetPassportValidation()
+        private static async Task<List<ValidationResult>> GetPassportValidation(DTO.Passport passport)
         {
-            return await Validator.ValidateAsync(new PassportLine(), String.Empty);
+            return await Validator.ValidateAsync(passport);
         }
 
         public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest apigProxyEvent, ILambdaContext context)
         {
-            var validationResults = await GetPassportValidation();
+            var validationResults = await GetPassportValidation(JsonConvert.DeserializeObject<DTO.Passport>(apigProxyEvent.Body));
 
             return new APIGatewayProxyResponse
             {

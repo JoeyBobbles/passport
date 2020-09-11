@@ -1,6 +1,5 @@
-﻿using UK.Passport.Validation.DTOs;
-using System.ComponentModel.DataAnnotations;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using ValidationResult = UK.Passport.DTO.ValidationResult;
 
 namespace UK.Passport.Validation.Tests
 {
@@ -15,7 +14,7 @@ namespace UK.Passport.Validation.Tests
 
             var result = validator.ValidateCheckDigit(nameof(Validator_CheckDigit_Validate), checkDigit);
 
-            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CheckDigit_Validate), true);
+            var expectedValidationResult = new ValidationResult(nameof(Validator_CheckDigit_Validate), true);
             
             Assert.AreEqual(expectedValidationResult.Id, result.Id);
             Assert.AreEqual(expectedValidationResult.Result, result.Result);
@@ -30,7 +29,7 @@ namespace UK.Passport.Validation.Tests
 
             var result = validator.CrossCheck(nameof(Validator_CrossCheck_AssertDifferent), crossCheckValue);
 
-            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CrossCheck_AssertDifferent), true);
+            var expectedValidationResult = new ValidationResult(nameof(Validator_CrossCheck_AssertDifferent), true);
             
             Assert.AreEqual(expectedValidationResult.Id, result.Id);
             Assert.AreNotEqual(expectedValidationResult.Result, result.Result);
@@ -45,7 +44,7 @@ namespace UK.Passport.Validation.Tests
 
             var result = validator.CrossCheck(nameof(Validator_CrossCheck_AssertEqual), crossCheckValue);
             
-            var expectedValidationResult = new DTOs.ValidationResult(nameof(Validator_CrossCheck_AssertEqual), true);
+            var expectedValidationResult = new ValidationResult(nameof(Validator_CrossCheck_AssertEqual), true);
 
             Assert.AreEqual(expectedValidationResult.Id, result.Id);
             Assert.AreEqual(expectedValidationResult.Result, result.Result);

@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using UK.Passport.Validation.DTOs;
+using UK.Passport.DTO;
 
 namespace UK.Passport.Validation.Tests
 {
@@ -12,7 +12,7 @@ namespace UK.Passport.Validation.Tests
         public void DecodedPassportLine_TestDecoder_DateOfBirth(string input, int year, int month, int day,
             int checkDigit)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(new DateTime(year, month, day), passportLine.DateOfBirth);
             Assert.AreEqual(checkDigit, passportLine.DateOfBirthCheckDigit);
@@ -23,7 +23,7 @@ namespace UK.Passport.Validation.Tests
         public void DecodedPassportLine_TestDecoder_DateOfExpiry(string input, int year, int month, int day,
             int checkDigit)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(new DateTime(year, month, day), passportLine.ExpirationDate);
             Assert.AreEqual(checkDigit, passportLine.ExpirationDateCheckDigit);
@@ -33,7 +33,7 @@ namespace UK.Passport.Validation.Tests
         [TestCase("L898902C<3UTO6908061F9406236ZE184226B<<<<<14", 4)]
         public void DecodedPassportLine_TestDecoder_FinalCheckDigit(string input, int checkDigit)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(checkDigit, passportLine.FinalCheckDigit);
         }
@@ -42,7 +42,7 @@ namespace UK.Passport.Validation.Tests
         [TestCase("L898902C<3UTO6908061F9406236ZE184226B<<<<<14", "F")]
         public void DecodedPassportLine_TestDecoder_Gender(string input, string expected)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(expected, passportLine.Gender);
         }
@@ -51,7 +51,7 @@ namespace UK.Passport.Validation.Tests
         [TestCase("L898902C<3UTO6908061F9406236ZE184226B<<<<<14", "UTO")]
         public void DecodedPassportLine_TestDecoder_Nationality(string input, string expected)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(expected, passportLine.Nationality);
         }
@@ -60,7 +60,7 @@ namespace UK.Passport.Validation.Tests
         [TestCase("L898902C<3UTO6908061F9406236ZE184226B<<<<<14", "L898902C", 3)]
         public void DecodedPassportLine_TestDecoder_PassportNumber(string input, string expected, int checkDigit)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(expected, passportLine.PassportNumber);
             Assert.AreEqual(checkDigit, passportLine.PassportNumberCheckDigit);
@@ -70,7 +70,7 @@ namespace UK.Passport.Validation.Tests
         [TestCase("L898902C<3UTO6908061F9406236ZE184226B<<<<<14", "ZE184226B<<<<<", 1)]
         public void DecodedPassportLine_TestDecoder_PersonalNumber(string input, string expected, int checkDigit)
         {
-            var passportLine = new DecodedPassportLine(input);
+            var passportLine = new DecodedPassport(input);
 
             Assert.AreEqual(expected, passportLine.PersonalNumber);
             Assert.AreEqual(checkDigit, passportLine.PersonalNumberCheckDigit);
@@ -79,7 +79,7 @@ namespace UK.Passport.Validation.Tests
         [Test]
         public void DecodedPassportLine_TestDecoder_ThrowsExceptionOnInvalidLength()
         {
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new DecodedPassportLine("ASD12345"));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new DecodedPassport("ASD12345"));
 
             Assert.True(ex.Message.Contains("MrzLine2 is not of the correct length"));
         }
@@ -87,7 +87,7 @@ namespace UK.Passport.Validation.Tests
         [Test]
         public void DecodedPassportLine_TestDecoder_ThrowsExceptionOnNullOrEmtpy()
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => new DecodedPassportLine(string.Empty));
+            var ex = Assert.Throws<ArgumentNullException>(() => new DecodedPassport(string.Empty));
 
             Assert.True(ex.Message.Contains("MrzLine2 is null or empty it should have a value"));
         }
