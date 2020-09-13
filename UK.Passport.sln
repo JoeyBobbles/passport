@@ -15,6 +15,8 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UK.Passport.Web", "UK.Passport.Web\UK.Passport.Web.csproj", "{C127B2E0-BC81-4CB5-AA7E-F9F8184D3237}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,5 +39,9 @@ Global
 		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5246BADB-5FD2-46B2-B116-AC5CF6778E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C127B2E0-BC81-4CB5-AA7E-F9F8184D3237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C127B2E0-BC81-4CB5-AA7E-F9F8184D3237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C127B2E0-BC81-4CB5-AA7E-F9F8184D3237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C127B2E0-BC81-4CB5-AA7E-F9F8184D3237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
