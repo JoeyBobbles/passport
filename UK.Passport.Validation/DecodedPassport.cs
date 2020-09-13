@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 
-namespace UK.Passport.DTO
+namespace UK.Passport.Validation
 {
-    public class DecodedPassport : Passport
+    public class DecodedPassport : DTO.Passport
     {
         public DecodedPassport(string mrzLine2)
         {

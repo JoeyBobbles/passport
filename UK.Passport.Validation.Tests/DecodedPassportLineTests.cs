@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using UK.Passport.DTO;
 
 namespace UK.Passport.Validation.Tests
 {
